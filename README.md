@@ -1,106 +1,103 @@
-RootStock Scaffold CLI Tool
-License
-Node Version
-NPM Version
+# RootStock Scaffold CLI Tool
+
+![License](https://img.shields.io/badge/license-ISC-blue.svg)
+![Node Version](https://img.shields.io/badge/node-%3E%3D14.x-brightgreen)
+![NPM Version](https://img.shields.io/badge/npm-%3E%3D6.x-brightgreen)
 
 A powerful CLI tool to scaffold Rootstock dApps with ease. Quickly set up a full-stack dApp with a customizable stack, including smart contracts, frontend frameworks, and blockchain interaction tools.
 
-Table of Contents
-Features
+## 📋 Table of Contents
 
-Installation
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Project Structure](#project-structure)
+- [Technologies Used](#technologies-used)
+- [Contributing](#contributing)
+- [License](#license)
+- [Support](#support)
 
-Usage
+## ✨ Features
 
-Project Structure
+- **Scaffold a Full-Stack dApp**: Quickly generate a dApp project with a customizable stack
+- **Frontend Frameworks**: Choose between Next.js or React.js for your frontend
+- **Programming Languages**: Use TypeScript or JavaScript for your project
+- **Smart Contracts**: Automatically generate and deploy an ERC-20 token contract on Rootstock
+- **Blockchain Interaction**: Integrated with Wagmi and RainbowKit for seamless wallet connection
+- **Tailwind CSS**: Pre-configured with Tailwind CSS for rapid UI development
+- **Hardhat Integration**: Built-in Hardhat configuration for smart contract development and testing
 
-Technologies Used
+## 🚀 Installation
 
-Contributing
-
-License
-
-Support
-
-Features
-Scaffold a Full-Stack dApp: Quickly generate a dApp project with a customizable stack.
-
-Frontend Frameworks: Choose between Next.js or React.js for your frontend.
-
-Programming Languages: Use TypeScript or JavaScript for your project.
-
-Smart Contracts: Automatically generate and deploy an ERC-20 token contract on Rootstock.
-
-Blockchain Interaction: Integrated with Wagmi and RainbowKit for seamless wallet connection and blockchain interaction.
-
-Tailwind CSS: Pre-configured with Tailwind CSS for rapid UI development.
-
-Hardhat Integration: Built-in Hardhat configuration for smart contract development and testing.
-
-Installation
 To use the RootStock Scaffold CLI tool, you need to have Node.js (>= 14.x) and npm (>= 6.x) installed on your machine.
 
-Install Globally via npm
-bash
-Copy
+### Install Globally via npm
+
+```bash
 npm install -g sila-scaffold-rootstock
-Install Locally
-Clone the repository:
+```
 
-bash
-Copy
-git clone https://github.com/web3normad/RootStock-Scaffold.git
-cd RootStock-Scaffold
-Install dependencies:
+### Install Locally
 
-bash
-Copy
-npm install
-Link the package globally (for local development):
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/web3normad/RootStock-Scaffold.git
+   cd RootStock-Scaffold
+   ```
 
-bash
-Copy
-npm link
-Usage
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Link the package globally (for local development):
+   ```bash
+   npm link
+   ```
+
+## 🛠️ Usage
+
 Once installed, you can use the CLI tool to scaffold a new Rootstock dApp project.
 
-Scaffold a New Project
+### Scaffold a New Project
+
 Run the following command and follow the prompts:
 
-bash
-Copy
+```bash
 create-rootstock-dapp
-CLI Prompts
-Project Name: Enter the name of your project.
+```
 
-Frontend Framework: Choose between Next.js or React.js.
+### CLI Prompts
 
-Programming Language: Choose between TypeScript or JavaScript.
+- **Project Name**: Enter the name of your project
+- **Frontend Framework**: Choose between Next.js or React.js
+- **Programming Language**: Choose between TypeScript or JavaScript
+- **Install Dependencies**: Choose whether to install dependencies automatically
 
-Install Dependencies: Choose whether to install dependencies automatically.
+### Running the Project
 
-Running the Project
 After scaffolding, navigate to your project directory and follow these steps:
 
-Start the local blockchain:
+1. Start the local blockchain:
+   ```bash
+   npm run blockchain
+   ```
 
-bash
-Copy
-npm run blockchain
-Deploy your smart contracts:
+2. Deploy your smart contracts:
+   ```bash
+   npm run deploy
+   ```
 
-bash
-Copy
-npm run deploy
-Start the frontend:
+3. Start the frontend:
+   ```bash
+   npm run frontend
+   ```
 
-bash
-Copy
-npm run frontend
-Project Structure
+## 📁 Project Structure
+
 The scaffolded project will have the following structure:
 
-Copy
+```
 my-rootstock-dapp/
 ├── blockchain/               # Smart contract development
 │   ├── contracts/            # Solidity contracts
@@ -113,50 +110,47 @@ my-rootstock-dapp/
 │   └── tailwind.config.js    # Tailwind CSS configuration
 ├── package.json              # Project dependencies and scripts
 └── README.md                 # Project documentation
-Technologies Used
-Frontend: Next.js, React.js, Tailwind CSS
+```
 
-Blockchain: Rootstock, Hardhat, Solidity
+## 🔧 Technologies Used
 
-Wallet Integration: Wagmi, RainbowKit
+- **Frontend**: Next.js, React.js, Tailwind CSS
+- **Blockchain**: Rootstock, Hardhat, Solidity
+- **Wallet Integration**: Wagmi, RainbowKit
+- **CLI Tools**: Commander, Inquirer, Chalk, ShellJS
 
-CLI Tools: Commander, Inquirer, Chalk, ShellJS
+## 👥 Contributing
 
-Contributing
 We welcome contributions! If you'd like to contribute to this project, please follow these steps:
 
-Fork the repository.
-
-Create a new branch:
-
-bash
-Copy
-git checkout -b feature/your-feature-name
-Make your changes and commit them:
-
-bash
-Copy
-git commit -m "Add your feature"
-Push to the branch:
-
-bash
-Copy
-git push origin feature/your-feature-name
-Open a pull request.
+1. Fork the repository
+2. Create a new branch:
+   ```bash
+   git checkout -b feature/your-feature-name
+   ```
+3. Make your changes and commit them:
+   ```bash
+   git commit -m "Add your feature"
+   ```
+4. Push to the branch:
+   ```bash
+   git push origin feature/your-feature-name
+   ```
+5. Open a pull request
 
 Please ensure your code follows the project's coding standards and includes appropriate tests.
 
-License
+## 📄 License
+
 This project is licensed under the ISC License. See the LICENSE file for details.
 
-Support
+## 🤝 Support
+
 If you encounter any issues or have questions, feel free to:
+- Open an issue on GitHub
+- Reach out to the maintainer at your.email@example.com
 
-Open an issue on GitHub.
+## 🙏 Acknowledgments
 
-Reach out to the maintainer at your.email@example.com.
-
-Acknowledgments
-Inspired by Scaffold-ETH.
-
-Built with ❤️ by Emmanuel Doji.
+- Inspired by Scaffold-ETH
+- Built with ❤️ by Emmanuel Doji
