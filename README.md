@@ -148,7 +148,7 @@ This project is licensed under the ISC License. See the LICENSE file for details
 
 If you encounter any issues or have questions, feel free to:
 - Open an issue on GitHub
-- Reach out to the maintainer at your.email@example.com
+- Reach out to the maintainer at dojiemma@gmail.com
 
 ## 🙏 Acknowledgments
 
