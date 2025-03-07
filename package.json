@@ -1,23 +1,38 @@
 {
   "name": "sila-scaffold-rootstock",
   "version": "1.0.0",
+  "description": "A CLI tool to scaffold Rootstock dApps with ease.",
   "main": "index.js",
+  "bin": {
+    "rootstock-scaffold": "./index.js"
+  },
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "bin": {
-  "create-rootstock-dapp": "./index.js"
-},
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "rootstock",
+    "dapp",
+    "scaffold",
+    "cli",
+    "blockchain"
+  ],
+  "author": "Your Name <your.email@example.com>",
   "license": "ISC",
   "type": "commonjs",
-  "description": "",
   "dependencies": {
     "chalk": "^5.4.1",
     "commander": "^13.1.0",
     "figlet": "^1.8.0",
     "inquirer": "^12.4.2",
     "shelljs": "^0.8.5"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/web3normad/RootStock-Scaffold.git"
+  },
+  "bugs": {
+    "url": "https://github.com/web3normad/RootStock-Scaffold/issues"
+  },
+  "homepage": "https://github.com/web3normad/RootStock-Scaffold#readme"
 }
