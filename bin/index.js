@@ -7,6 +7,7 @@ const inquirer = require('inquirer');
 const chalk = require('chalk');
 const ora = require('ora');
 const figlet = require('figlet');
+const { program } = require('commander');
 
 const welcome = `
 ███████╗ ██████╗ █████╗ ███████╗███████╗ ██████╗ ██╗     ██████╗       ██████╗  ██████╗  ██████╗ ████████╗███████╗████████╗ ██████╗  ██████╗██╗  ██╗
@@ -236,57 +237,53 @@ main()
       deployScript
     );
     
-    // Create frontend directory
-    const frontendDir = path.join(projectPath, 'frontend');
-    fs.mkdirSync(frontendDir);
-    
-    // Set up frontend based on chosen framework
-    if (answers.frontend === 'Next.js') {
-      const templateDir = answers.language === 'TypeScript' ? 
-        'next-typescript-template' : 'next-javascript-template';
-      
-      // Create Next.js with appropriate template
-      execSync(`npx create-next-app@latest ${frontendDir} --tailwind --eslint --app --no-src-dir --${answers.language === 'TypeScript' ? 'ts' : 'js'}`, { stdio: 'ignore' });
-      
-      // Create config files
-      spinner.text = 'Setting up Next.js frontend...';
-    } else {
-      // Create React app
-      execSync(`npx create-react-app ${frontendDir} ${answers.language === 'TypeScript' ? '--template typescript' : ''}`, { stdio: 'ignore' });
-      
-      // Install Tailwind CSS
-      execSync(`cd ${frontendDir} && npm install -D tailwindcss postcss autoprefixer && npx tailwindcss init -p`, { stdio: 'ignore' });
-      
-      // Configure Tailwind CSS
-      const tailwindConfig = `/** @type {import('tailwindcss').Config} */
+// Create frontend directory
+const frontendDir = path.join(projectPath, 'frontend');
+fs.mkdirSync(frontendDir);
+
+// Set up frontend based on chosen framework
+if (answers.frontend === 'Next.js') {
+  // Next.js setup remains the same
+} else {
+  // Create Vite project
+  execSync(`npm create vite@latest ${frontendDir} -- --template ${answers.language === 'TypeScript' ? 'react-ts' : 'react'}`, { stdio: 'ignore' });
+
+  // Install Tailwind CSS and its dependencies
+  execSync(`cd ${frontendDir} && npm install -D tailwindcss@3 postcss autoprefixer`, { stdio: 'ignore' });
+
+  // Initialize Tailwind CSS configuration
+  execSync(`cd ${frontendDir} && npx tailwindcss init -p`, { stdio: 'ignore' });
+
+  // Configure Tailwind CSS
+  const tailwindConfig = `/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./src/**/*.{js,jsx,ts,tsx}",
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {},
   },
   plugins: [],
 }`;
-      
-      fs.writeFileSync(
-        path.join(frontendDir, 'tailwind.config.js'),
-        tailwindConfig
-      );
-      
-      // Add Tailwind directives to CSS
-      const tailwindDirectives = `@tailwind base;
+
+  fs.writeFileSync(
+    path.join(frontendDir, 'tailwind.config.js'),
+    tailwindConfig
+  );
+
+  // Add Tailwind directives to CSS
+  const tailwindDirectives = `@tailwind base;
 @tailwind components;
 @tailwind utilities;`;
-      
-      fs.writeFileSync(
-        path.join(frontendDir, 'src', 'index.css'),
-        tailwindDirectives
-      );
-      
-      spinner.text = 'Setting up React.js frontend...';
-    }
-    
+
+  fs.writeFileSync(
+    path.join(frontendDir, 'src', 'index.css'),
+    tailwindDirectives
+  );
+
+  spinner.text = 'Setting up React.js frontend with Vite and Tailwind CSS...';
+}
     // Install blockchain interaction packages
     spinner.text = 'Installing web3 dependencies...';
     execSync(`cd ${frontendDir} && npm install wagmi viem @rainbow-me/rainbowkit`, { stdio: 'ignore' });

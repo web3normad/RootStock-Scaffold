@@ -4,7 +4,7 @@
   "description": "A CLI tool to scaffold Rootstock dApps with ease.",
   "main": "index.js",
   "bin": {
-    "rootstock-scaffold": "./index.js"
+    "rootstock-scaffold": "./bin/index.js"
   },
   "scripts": {
     "start": "node index.js",
@@ -17,14 +17,15 @@
     "cli",
     "blockchain"
   ],
-  "author": "Your Name <your.email@example.com>",
+  "author": "Emmanuel Doji dojiemma@gmail.com",
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
-    "chalk": "^5.4.1",
+    "chalk": "^4.1.2",
     "commander": "^13.1.0",
     "figlet": "^1.8.0",
-    "inquirer": "^12.4.2",
+    "inquirer": "^8.2.6",
+    "ora": "^5.4.1",
     "shelljs": "^0.8.5"
   },
   "repository": {
